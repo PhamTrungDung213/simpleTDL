@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,21 @@ namespace SimpleToDoList
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://github.com/PhamTrungDung213",
+                    UseShellExecute = true
+                });
+            }
+            catch
+            {
+            }
         }
     }
 }

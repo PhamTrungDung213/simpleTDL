@@ -35,19 +35,23 @@
             this.btnImp = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtRF = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtAdd = new System.Windows.Forms.TextBox();
-            this.dtAdd = new System.Windows.Forms.DateTimePicker();
-            this.cbImp = new System.Windows.Forms.CheckBox();
+            this.btnUp = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnFix = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbImp = new System.Windows.Forms.CheckBox();
+            this.dtAdd = new System.Windows.Forms.DateTimePicker();
+            this.txtAdd = new System.Windows.Forms.TextBox();
+            this.dtSQL = new System.Windows.Forms.DataGridView();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imp = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSQL)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -75,6 +79,7 @@
             this.btnS.TabIndex = 3;
             this.btnS.Text = "🔍";
             this.btnS.UseVisualStyleBackColor = true;
+            this.btnS.Click += new System.EventHandler(this.btnS_Click);
             // 
             // btnMain
             // 
@@ -84,6 +89,7 @@
             this.btnMain.TabIndex = 4;
             this.btnMain.Text = "Main List";
             this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // btnImp
             // 
@@ -93,6 +99,7 @@
             this.btnImp.TabIndex = 5;
             this.btnImp.Text = "Important";
             this.btnImp.UseVisualStyleBackColor = true;
+            this.btnImp.Click += new System.EventHandler(this.btnImp_Click);
             // 
             // groupBox1
             // 
@@ -108,7 +115,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtRF);
             this.groupBox2.Controls.Add(this.btnMain);
             this.groupBox2.Controls.Add(this.btnImp);
             this.groupBox2.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,18 +125,10 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Function";
             // 
-            // txtRF
-            // 
-            this.txtRF.Location = new System.Drawing.Point(6, 385);
-            this.txtRF.Name = "txtRF";
-            this.txtRF.Size = new System.Drawing.Size(25, 23);
-            this.txtRF.TabIndex = 6;
-            this.txtRF.Text = "🔄";
-            this.txtRF.UseVisualStyleBackColor = true;
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnFix);
+            this.groupBox3.Controls.Add(this.btnDel);
+            this.groupBox3.Controls.Add(this.btnUp);
             this.groupBox3.Controls.Add(this.btnAdd);
             this.groupBox3.Controls.Add(this.cbImp);
             this.groupBox3.Controls.Add(this.dtAdd);
@@ -143,19 +141,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "New";
             // 
-            // txtAdd
+            // btnUp
             // 
-            this.txtAdd.Location = new System.Drawing.Point(6, 25);
-            this.txtAdd.Name = "txtAdd";
-            this.txtAdd.Size = new System.Drawing.Size(642, 26);
-            this.txtAdd.TabIndex = 0;
+            this.btnUp.Location = new System.Drawing.Point(469, 57);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(69, 23);
+            this.btnUp.TabIndex = 4;
+            this.btnUp.Text = "Update";
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
-            // dtAdd
+            // btnAdd
             // 
-            this.dtAdd.Location = new System.Drawing.Point(6, 57);
-            this.dtAdd.Name = "dtAdd";
-            this.dtAdd.Size = new System.Drawing.Size(244, 26);
-            this.dtAdd.TabIndex = 1;
+            this.btnAdd.Location = new System.Drawing.Point(593, 57);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(55, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cbImp
             // 
@@ -167,52 +171,97 @@
             this.cbImp.Text = " ★";
             this.cbImp.UseVisualStyleBackColor = true;
             // 
-            // btnAdd
+            // dtAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(593, 57);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(55, 23);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "+";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.dtAdd.Location = new System.Drawing.Point(6, 57);
+            this.dtAdd.Name = "dtAdd";
+            this.dtAdd.Size = new System.Drawing.Size(244, 26);
+            this.dtAdd.TabIndex = 1;
             // 
-            // btnFix
+            // txtAdd
             // 
-            this.btnFix.Location = new System.Drawing.Point(532, 57);
-            this.btnFix.Name = "btnFix";
-            this.btnFix.Size = new System.Drawing.Size(55, 23);
-            this.btnFix.TabIndex = 4;
-            this.btnFix.Text = "Fix";
-            this.btnFix.UseVisualStyleBackColor = true;
+            this.txtAdd.Location = new System.Drawing.Point(6, 25);
+            this.txtAdd.Name = "txtAdd";
+            this.txtAdd.Size = new System.Drawing.Size(642, 26);
+            this.txtAdd.TabIndex = 0;
+            this.txtAdd.TextChanged += new System.EventHandler(this.txtAdd_TextChanged);
             // 
-            // dataGridView1
+            // dtSQL
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(134, 164);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(654, 317);
-            this.dataGridView1.TabIndex = 9;
+            this.dtSQL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtSQL.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.note,
+            this.dl,
+            this.imp});
+            this.dtSQL.Location = new System.Drawing.Point(134, 164);
+            this.dtSQL.Name = "dtSQL";
+            this.dtSQL.RowTemplate.Height = 28;
+            this.dtSQL.Size = new System.Drawing.Size(654, 317);
+            this.dtSQL.TabIndex = 9;
+            this.dtSQL.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtSQL_CellMouseClick);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(544, 57);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(43, 23);
+            this.btnDel.TabIndex = 5;
+            this.btnDel.Text = "🗑";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // note
+            // 
+            this.note.DataPropertyName = "note";
+            this.note.HeaderText = "ToDo";
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
+            this.note.Width = 430;
+            // 
+            // dl
+            // 
+            this.dl.DataPropertyName = "dl";
+            this.dl.HeaderText = "Deadline";
+            this.dl.Name = "dl";
+            this.dl.ReadOnly = true;
+            this.dl.Width = 150;
+            // 
+            // imp
+            // 
+            this.imp.DataPropertyName = "imp";
+            this.imp.HeaderText = "★";
+            this.imp.Name = "imp";
+            this.imp.Width = 30;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 493);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtSQL);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SimpleToDoList";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSQL)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,14 +275,18 @@
         private System.Windows.Forms.Button btnImp;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button txtRF;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox cbImp;
         private System.Windows.Forms.DateTimePicker dtAdd;
         private System.Windows.Forms.TextBox txtAdd;
-        private System.Windows.Forms.Button btnFix;
+        private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtSQL;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dl;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn imp;
     }
 }
 
